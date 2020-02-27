@@ -8,8 +8,8 @@ Dark-mode
 * Responsive without media queries
 
 ## Stages
-[X] Intro
-[ ] Menu
-[ ] Dish select
-[ ] Serving
-[ ] Shut down
+- [X] Intro
+- [ ] Menu
+- [ ] Dish select
+- [ ] Serving
+- [ ] Shut down
