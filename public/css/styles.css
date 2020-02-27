@@ -1,79 +1,172 @@
 :root {
   --dark: #000;
-  --course: #F4E408;
   --light: #fff;
+  --russ-daughters: #AFF7FE;
 }
+
+@font-face {
+  font-family: "Inconsolata-regular";
+  src: url("../fonts/Inconsolata-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Inconsolata-black";
+  src: url("../fonts/Inconsolata-Bold.ttf");
+}
+
+/* CONSOLE STYLING SETUP */
 body {
-  background-color: var(--dark);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-  color: var(--light);
-  font-family: monospace;
-  font-size: 1.5em;
-  line-height: 1.5;
   margin: 0;
+  padding: 3%;
+  height: 100vh;
+  background-image: radial-gradient(
+    #161616, var(--dark) 120%
+  );
+  color: var(--russ-daughters);
+  font-family: 'Inconsolata-regular', serif;
+  line-height: 1rem;
+  text-shadow: 0 0 5px var(--russ-daughters);
+  animation: blurScreen 30s infinite;
+  animation-delay: 3s;
 }
-main {
-  max-width: 800px;
-  margin: 10vh auto;
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,.15), rgba(0,0,0,.15),
+    transparent 1px, transparent 2px
+  );
+  pointer-events: none;
+  animation: flickerScreen 45s infinite;
 }
-header {
-  background: var(--course);
-  color: var(--dark);
-  height: 30vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+::selection {
+  background: var(--russ-daughters);
+  text-shadow: none;
 }
-h1 {
-  font-size: 5em;
+
+/* Hide all elements except intro */
+section:not(:first-of-type) {
+  display: none;
 }
-h2 {
-  font-size: 2em;
-  margin-top: 1.5em;
+
+/* INTRO */
+section:first-of-type {
+  display: block;
 }
-.gallery {
-  display: flex;
-  /flex-wrap: wrap;
-  justify-content: space-between;
-  list-style-type: none;
-  padding: 0;
-  margin: 0 -1rem;
-}
-.gallery li {
+
+section:first-of-type header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 1rem;
-}
-.gallery img {
-  border: 2px solid var(--light);
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-img {
-  max-width: 100%;
-}
-
-section#lecturers img {
-  border-radius: 100%;
-  margin-right: 1em;
+  position: relative;
+  padding: 1rem;
+  max-width: 20rem;
+  opacity: 0;
+  text-align: center;
+  border: 1px solid var(--russ-daughters);
+  border-radius: 3px;
+  animation: flickerShadow 10s infinite,
+             makeVisible .1s forwards;
+  animation-delay: 12s;
 }
 
-.button {
-  background: var(--light);
-  color: var(--dark);
-  padding: 1em;
+/* section:first-of-type header::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+} */
+
+section:first-of-type header h1, section:first-of-type header p {
+  margin: .5rem 0;
 }
 
-.examples img {
-  max-width: 25vh;
+section:first-of-type article p span {
+  display: block;
+  height: 1rem;
+  overflow-x: hidden;
+  white-space: nowrap;
+  visibility: hidden;
+  animation: typeInTerminal 6s steps(60) forwards;
 }
 
-a,
-a:visited {
-  color: var(--course);
+section:first-of-type article p:first-of-type span:nth-child(1) {
+  animation-delay: 1s;
 }
 
-footer {
-  font-style: italic;
+section:first-of-type article p:first-of-type span:nth-child(2) {
+  animation-delay: 3s;
+}
+
+section:first-of-type article p:first-of-type span:nth-child(3) {
+  animation-delay: 5s;
+}
+
+section:first-of-type article p:first-of-type span:nth-child(4) {
+  animation-delay: 9s;
+}
+
+section:first-of-type article p:last-of-type span:nth-child(1) {
+  animation-delay: 14s;
+}
+
+section:first-of-type article p:last-of-type span:nth-child(2) {
+  animation-delay: 18s;
+}
+
+section:first-of-type article p:last-of-type span:nth-child(2)::after {
+  content: '';
+}
+
+@keyframes blurScreen {
+  0%, 99% { filter: blur(3px) }
+  1%, 98%, 100% { filter: blur(0px) }
+}
+
+@keyframes typeInTerminal {
+  from { width: 0 }
+  to {
+    visibility: visible;
+    width: 100%;
+  }
+}
+
+@keyframes makeVisible {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes rotate3D {
+  0%, 100% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+}
+
+@keyframes flickerShadow {
+  0%, 99% { text-shadow: 0 0 5px var(--russ-daughters) }
+  1%, 98%, 100% { text-shadow: 0 0 15px var(--russ-daughters) }
+}
+
+@keyframes flickerScreen {
+  0%, 99.9% {
+    background: var(--dark)
+  }
+  1%, 99.8%, 100% {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.15), rgba(0,0,0,.15),
+      transparent 1px, transparent 2px
+    );
+  }
 }
