@@ -6,3 +6,10 @@ Dark-mode
 ## Restrictions
 * Two-colors
 * Responsive without media queries
+
+## Stages
+[X] Intro
+[ ] Menu
+[ ] Dish select
+[ ] Serving
+[ ] Shut down
