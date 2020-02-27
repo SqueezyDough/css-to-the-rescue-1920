@@ -1,7 +1,8 @@
 :root {
   --dark: #000;
   --light: #fff;
-  --russ-daughters: #AFF7FE;
+  --russ-daughters: #8ECFD5;
+  --russ-daughters-secondary: #D1A45B;
 }
 
 @font-face {
@@ -14,7 +15,10 @@
   src: url("../fonts/Inconsolata-Bold.ttf");
 }
 
-/* CONSOLE STYLING SETUP */
+/* //////// */
+  /* CONSOLE */
+/* //////// */
+
 body {
   margin: 0;
   padding: 3%;
@@ -27,11 +31,11 @@ body {
   line-height: 1rem;
   text-shadow: 0 0 5px var(--russ-daughters);
   animation: blurScreen 30s infinite;
-  animation-delay: 3s;
+  animation-delay: 3s, 19s;
 }
 
 body::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -43,7 +47,9 @@ body::after {
     transparent 1px, transparent 2px
   );
   pointer-events: none;
-  animation: flickerScreen 45s infinite;
+  animation: flickerScreen 45s infinite,
+             reboot 4s forwards;
+  animation-delay: 0s, 21s;
 }
 
 ::selection {
@@ -51,12 +57,20 @@ body::after {
   text-shadow: none;
 }
 
+main > section {
+  opacity: 1;
+  animation: flickerContent steps(10) 4s forwards;
+  animation-delay: 20s;
+}
+
 /* Hide all elements except intro */
 section:not(:first-of-type) {
   display: none;
 }
 
-/* INTRO */
+/* //////// */
+  /* INTRO */
+/* //////// */
 section:first-of-type {
   display: block;
 }
@@ -71,25 +85,18 @@ section:first-of-type header {
   max-width: 20rem;
   opacity: 0;
   text-align: center;
-  border: 1px solid var(--russ-daughters);
+  border: 1px solid var(--russ-daughters-secondary);
   border-radius: 3px;
   animation: flickerShadow 10s infinite,
              makeVisible .1s forwards;
-  animation-delay: 12s;
+  animation-delay: 14s;
 }
-
-/* section:first-of-type header::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-} */
 
 section:first-of-type header h1, section:first-of-type header p {
   margin: .5rem 0;
 }
 
-section:first-of-type article p span {
+section:first-of-type article > span, section:first-of-type article p span {
   display: block;
   height: 1rem;
   overflow-x: hidden;
@@ -98,32 +105,53 @@ section:first-of-type article p span {
   animation: typeInTerminal 6s steps(60) forwards;
 }
 
-section:first-of-type article p:first-of-type span:nth-child(1) {
+section:first-of-type article > span {
+  text-shadow: 0 0 5px var(--russ-daughters-secondary);
+  color: var(--russ-daughters-secondary);
   animation-delay: 1s;
 }
 
-section:first-of-type article p:first-of-type span:nth-child(2) {
+section:first-of-type article p {
+  position: relative;
+}
+
+section:first-of-type article p:first-of-type span:nth-child(1) {
   animation-delay: 3s;
 }
 
-section:first-of-type article p:first-of-type span:nth-child(3) {
+section:first-of-type article p:first-of-type span:nth-child(2) {
   animation-delay: 5s;
 }
 
+section:first-of-type article p:first-of-type span:nth-child(3) {
+  animation-delay: 7s;
+}
+
 section:first-of-type article p:first-of-type span:nth-child(4) {
-  animation-delay: 9s;
+  animation-delay: 11s;
 }
 
 section:first-of-type article p:last-of-type span:nth-child(1) {
-  animation-delay: 14s;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  position: relative;
+  animation-delay: 16s;
+}
+
+section:first-of-type article p:last-of-type span:nth-child(1)::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 0;
+  height: 1rem;
+  left: 8rem;
+  background-color: var(--russ-daughters);
+  animation: progressBar steps(45) 5s forwards;
 }
 
 section:first-of-type article p:last-of-type span:nth-child(2) {
-  animation-delay: 18s;
-}
-
-section:first-of-type article p:last-of-type span:nth-child(2)::after {
-  content: '';
+  animation-delay: 19s;
 }
 
 @keyframes blurScreen {
@@ -137,6 +165,11 @@ section:first-of-type article p:last-of-type span:nth-child(2)::after {
     visibility: visible;
     width: 100%;
   }
+}
+
+@keyframes progressBar {
+  from { width: 0 }
+  to { width: 14rem }
 }
 
 @keyframes makeVisible {
@@ -169,4 +202,52 @@ section:first-of-type article p:last-of-type span:nth-child(2)::after {
       transparent 1px, transparent 2px
     );
   }
+}
+
+@keyframes reboot {
+  0%, 98% {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.15), rgba(0,0,0,.15),
+      transparent 1px, transparent 2px
+    );
+  }
+  1%, 97%, 99% {
+    background: var(--dark);
+  }
+  100% {
+    perspective: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.15), rgba(0,0,0,.15),
+      transparent 1px, transparent 2px
+    );
+  }
+}
+
+@keyframes flickerContent {
+  0%, 100% { opacity: 1 }
+  1%, 66% {
+    padding: 3rem;
+    opacity: 0;
+  }
+  33%, 99% {
+    padding: 6rem;
+    opacity: 0;
+  }
+}
+
+/* //////// */
+  /* MENU */
+/* //////// */
+main > section label {
+  display: none;
+  border: 1px solid var(--russ-daughters-secondary);
+  border-radius: 3px;
+  animation: sequenceVisible 1s forwards;
+}
+
+@keyframes sequenceVisible {
+  from { display: none }
+  to { display: block }
 }
