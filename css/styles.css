@@ -23,6 +23,8 @@ body {
   margin: 0;
   padding: 3%;
   height: 100vh;
+  box-sizing: border-box;
+  /* overflow-y: hidden; */
   background-image: radial-gradient(
     #161616, var(--dark) 120%
   );
@@ -57,25 +59,16 @@ body::after {
   text-shadow: none;
 }
 
-main > section {
+main {
   opacity: 1;
   animation: flickerContent steps(10) 4s forwards;
   animation-delay: 20s;
 }
 
-/* Hide all elements except intro */
-section:not(:first-of-type) {
-  display: none;
-}
-
 /* //////// */
   /* INTRO */
 /* //////// */
-section:first-of-type {
-  display: block;
-}
-
-section:first-of-type header {
+main > section header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,11 +85,11 @@ section:first-of-type header {
   animation-delay: 14s;
 }
 
-section:first-of-type header h1, section:first-of-type header p {
+main > section header h1, section:first-of-type header p {
   margin: .5rem 0;
 }
 
-section:first-of-type article > span, section:first-of-type article p span {
+main > section article > span, section:first-of-type article p span {
   display: block;
   height: 1rem;
   overflow-x: hidden;
@@ -105,33 +98,33 @@ section:first-of-type article > span, section:first-of-type article p span {
   animation: typeInTerminal 6s steps(60) forwards;
 }
 
-section:first-of-type article > span {
+main > section article > span {
   text-shadow: 0 0 5px var(--russ-daughters-secondary);
   color: var(--russ-daughters-secondary);
   animation-delay: 1s;
 }
 
-section:first-of-type article p {
+main > section article p {
   position: relative;
 }
 
-section:first-of-type article p:first-of-type span:nth-child(1) {
+main > section article p:first-of-type span:nth-child(1) {
   animation-delay: 3s;
 }
 
-section:first-of-type article p:first-of-type span:nth-child(2) {
+main > section article p:first-of-type span:nth-child(2) {
   animation-delay: 5s;
 }
 
-section:first-of-type article p:first-of-type span:nth-child(3) {
+main > section article p:first-of-type span:nth-child(3) {
   animation-delay: 7s;
 }
 
-section:first-of-type article p:first-of-type span:nth-child(4) {
+main > section article p:first-of-type span:nth-child(4) {
   animation-delay: 11s;
 }
 
-section:first-of-type article p:last-of-type span:nth-child(1) {
+main > section article p:last-of-type span:nth-child(1) {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -139,7 +132,7 @@ section:first-of-type article p:last-of-type span:nth-child(1) {
   animation-delay: 16s;
 }
 
-section:first-of-type article p:last-of-type span:nth-child(1)::after {
+main > section article p:last-of-type span:nth-child(1)::after {
   content: '';
   display: inline-block;
   position: absolute;
@@ -150,7 +143,7 @@ section:first-of-type article p:last-of-type span:nth-child(1)::after {
   animation: progressBar steps(45) 5s forwards;
 }
 
-section:first-of-type article p:last-of-type span:nth-child(2) {
+main > section article p:last-of-type span:nth-child(2) {
   animation-delay: 19s;
 }
 
@@ -240,14 +233,39 @@ section:first-of-type article p:last-of-type span:nth-child(2) {
 /* //////// */
   /* MENU */
 /* //////// */
-main > section label {
-  display: none;
-  border: 1px solid var(--russ-daughters-secondary);
-  border-radius: 3px;
-  animation: sequenceVisible 1s forwards;
+main > div {
+  display: flex;
+  flex-wrap: wrap;
+  visibility: hidden;
+  max-height: 0;
+  animation: triggerSequence 1s forwards;
+  animation-delay: 24s;
 }
 
-@keyframes sequenceVisible {
-  from { display: none }
-  to { display: block }
+main > div section input[type='radio'] {
+  display: none;
+}
+
+main > div section label {
+  display: block;
+  width: 10rem;
+  height: 6rem;
+  text-align: center;
+  border: 1px solid var(--russ-daughters-secondary);
+  border-radius: 3px;
+}
+
+main > div > section > label > div {
+  display: none;
+}
+
+@keyframes triggerSequence {
+  from {
+    visibility: hidden;
+    max-height: 0
+  }
+  to {
+    visibility: visible;
+    max-height: unset;
+  }
 }
