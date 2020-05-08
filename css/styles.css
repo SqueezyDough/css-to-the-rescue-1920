@@ -5,6 +5,13 @@
   --russ-daughters-secondary: #D1A45B;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --russ-daughters: #8ECFD5;
+    --russ-daughters-secondary: #D1A45B;
+  }
+}
+
 @font-face {
   font-family: "Inconsolata-regular";
   src: url("../fonts/Inconsolata-Regular.ttf");
@@ -14,6 +21,16 @@
   font-family: "Inconsolata-black";
   src: url("../fonts/Inconsolata-Bold.ttf");
 }
+
+#dark:target {
+  background-color: red
+}
+
+#light:target {
+  background-color: blue;
+}
+
+
 
 /* //////// */
   /* CONSOLE */
@@ -63,6 +80,14 @@ main {
   opacity: 1;
   animation: flickerContent steps(10) 4s forwards;
   animation-delay: 20s;
+}
+
+[trigger="start"]:valid + [intro] {
+  display: block;
+}
+
+[intro] {
+  display: none;
 }
 
 /* //////// */
