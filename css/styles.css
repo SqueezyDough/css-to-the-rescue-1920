@@ -23,14 +23,12 @@
 }
 
 #body:target {
- 
     --russ-daughters: #5BD182;
     --russ-daughters-secondary: #FF4141;
 
     background-image: radial-gradient(
     #008A05, #004703 120%
   );
-
 }
 
 #html:target {
@@ -42,12 +40,17 @@
   box-sizing: border-box;
 }
 
+h1, h2, h3, h4, span, label {
+  overflow-y: hidden;
+}
+
 /* //////// */
   /* CONSOLE */
 /* //////// */
 body {
   margin: 0;
   padding: 3%;
+  min-height: 100vh;
   box-sizing: border-box;
   overflow-x: hidden;
   background-image: radial-gradient(
@@ -70,23 +73,15 @@ body::after {
   background: repeating-linear-gradient(
     0deg,
     rgba(0,0,0,.15), rgba(0,0,0,.15),
-    transparent 1px, transparent 2px
+    transparent 2px, transparent 3px
   );
   pointer-events: none;
-  animation: flickerScreen 45s infinite,
-             reboot 4s forwards;
-  animation-delay: 0s, 21s;
+  animation: flickerScreen 45s infinite;
 }
 
 ::selection {
   background: var(--russ-daughters);
   text-shadow: none;
-}
-
-main {
-  opacity: 1;
-  animation: flickerContent steps(10) 4s forwards;
-  animation-delay: 20s;
 }
 
 /* //////// */
@@ -153,10 +148,6 @@ a[theme] {
   display: block;
 }
 
-[food-service] {
-  display: none;
-}
-
 [theme] {
   display: block;
   padding: 3%;
@@ -173,6 +164,10 @@ a[theme] {
 [theme]:hover {
   background-color: var(--light);
 }
+
+/* //////// */
+  /* GLITCH KEYFRAMES */
+/* //////// */
 
 @keyframes blink {
   0%, 100% {
@@ -276,9 +271,13 @@ a[theme] {
 }
 
 /* //////// */
-  /* food-service */
+  /* INTRO */
 /* //////// */
-main > section header {
+[food-service] {
+  display: none;
+}
+
+[food-service] article:first-of-type > header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -295,46 +294,45 @@ main > section header {
   animation-delay: 14s;
 }
 
-main > section header h1, section:first-of-type header p {
+
+[food-service] h1, section:first-of-type header p {
   margin: .5rem 0;
 }
 
-main > section article > span, section:first-of-type article p span {
+[food-service] span {
   display: block;
-  height: 1rem;
+  height: 1.2rem;
   overflow-x: hidden;
   white-space: nowrap;
   visibility: hidden;
   animation: typeInTerminal 6s steps(60) forwards;
 }
 
-main > section article > span {
+/* body text is another color */
+[food-service] article > span {
   text-shadow: 0 0 5px var(--russ-daughters-secondary);
   color: var(--russ-daughters-secondary);
   animation-delay: 1s;
 }
 
-main > section article p {
-  position: relative;
-}
-
-main > section article p:first-of-type span:nth-child(1) {
+/* sequence text */
+[food-service] article p:first-of-type span:nth-child(1) {
   animation-delay: 3s;
 }
 
-main > section article p:first-of-type span:nth-child(2) {
+[food-service] article p:first-of-type span:nth-child(2) {
   animation-delay: 5s;
 }
 
-main > section article p:first-of-type span:nth-child(3) {
+[food-service] article p:first-of-type span:nth-child(3) {
   animation-delay: 7s;
 }
 
-main > section article p:first-of-type span:nth-child(4) {
+[food-service] article p:first-of-type span:nth-child(4) {
   animation-delay: 11s;
 }
 
-main > section article p:last-of-type span:nth-child(1) {
+[food-service] article p:last-of-type span:nth-child(1) {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -342,20 +340,32 @@ main > section article p:last-of-type span:nth-child(1) {
   animation-delay: 16s;
 }
 
-main > section article p:last-of-type span:nth-child(1)::after {
-  content: '';
+/* progression bar */
+[food-service] article p:last-of-type span:nth-child(1)::after {
+  content: 'Booting Menu';
   display: inline-block;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 0;
-  height: 1rem;
+  height: 100vh;
   left: 8rem;
   background-color: var(--russ-daughters);
   animation: progressBar steps(45) 5s forwards;
 }
 
-main > section article p:last-of-type span:nth-child(2) {
-  animation-delay: 19s;
+/* hide intro*/
+#body:target [food-service] article, #html:target [food-service] article {
+  animation: makeHidden 1ms forwards;
+  animation-delay: 26s;
 }
+
+#body:target main, #html:target main {
+  opacity: 1;
+  animation: flickerContent steps(10) 4s forwards;
+  animation-delay: 21s;
+}
+
 
 @keyframes blurScreen {
   0%, 99% { filter: blur(3px) }
@@ -372,12 +382,24 @@ main > section article p:last-of-type span:nth-child(2) {
 
 @keyframes progressBar {
   from { width: 0 }
-  to { width: 14rem }
+  to { width: 100% }
 }
 
 @keyframes makeVisible {
   from { opacity: 0 }
   to { opacity: 1 }
+}
+
+@keyframes makeHidden {
+  from {
+    visibility: visible;
+    max-height: initial;
+  }
+  to {
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+  }
 }
 
 @keyframes rotate3D {
@@ -402,7 +424,7 @@ main > section article p:last-of-type span:nth-child(2) {
     background: repeating-linear-gradient(
       0deg,
       rgba(0,0,0,.15), rgba(0,0,0,.15),
-      transparent 1px, transparent 2px
+      transparent 2px, transparent 3px
     );
   }
 }
@@ -412,7 +434,7 @@ main > section article p:last-of-type span:nth-child(2) {
     background: repeating-linear-gradient(
       0deg,
       rgba(0,0,0,.15), rgba(0,0,0,.15),
-      transparent 1px, transparent 2px
+      transparent 2px, transparent 3px
     );
   }
   1%, 97%, 99% {
@@ -423,7 +445,7 @@ main > section article p:last-of-type span:nth-child(2) {
     background: repeating-linear-gradient(
       0deg,
       rgba(0,0,0,.15), rgba(0,0,0,.15),
-      transparent 1px, transparent 2px
+      transparent 2px, transparent 3px
     );
   }
 }
@@ -443,37 +465,135 @@ main > section article p:last-of-type span:nth-child(2) {
 /* //////// */
   /* MENU */
 /* //////// */
-[food-service] > div:first-of-type {
+[food-service] > div {
   display: flex;
   flex-wrap: wrap;
   visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
   max-height: 0;
+  width: 100%;
+  overflow-x: hidden;
   overflow-y: hidden;
   animation: triggerSequence 1s forwards;
   animation-delay: 24s;
 }
 
-[food-service] > div section input[type='radio'] {
-  display: none;
+/* menu items */
+[menu] {
+  flex-grow: 1;
+  position: relative;
+  margin: .5rem;
+  height: 50%;
+  width: 40%;
+  background: var(--dark);
+  transition: all .5s;
 }
 
-[food-service] > div section input[type='radio']:checked + label {
-  background-color: var(--russ-daughters-secondary);
-  color: var(--dark);
+[menu]:hover {
+  flex-grow: 2;
 }
 
-[food-service] > div section label {
+[menu] > label {
   display: block;
-  width: 10rem;
-  height: 6rem;
+  position: relative;
+  filter: blur(10px);
+  clip-path: circle(5%);
+  height: 100%;
+  transition: all .2s;
   text-align: center;
-  border: 1px solid var(--russ-daughters-secondary);
-  border-radius: 3px;
   cursor: pointer;
+  animation: change-clip-path-size steps(8) 2s infinite;
 }
 
-[food-service] > section > label > div {
+
+[menu] > label:hover {
+  filter: blur(0);
+  clip-path: circle(100%);
+  background-color: var(--russ-daughters);
+  animation: unset;
+}
+
+[menu]:hover::before,
+[menu]:hover::after {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+[menu]:hover::before {
+  background-color: var(--russ-daughters-secondary);
+  z-index: -2;
+  animation: glitchy-border .3s ease infinite;
+}
+
+[menu]:hover::after {
+  background-color: var(--russ-daughters);
+  z-index: -1;
+  animation: glitchy-border .3s ease infinite reverse;
+  animation-delay: .3s;
+}
+
+[menu] header {
+  position: relative;
+  height: 100%;
+  font-size: 2.5rem;
+}
+
+[menu] header:hover {
+  color: var(--dark)
+}
+
+[menu] header h2 {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[menu] header h2:nth-child(1) {
+  color: var(--russ-daughters);
+  animation: glitchy-1 3s infinite;
+}
+
+[menu] header h2:nth-child(2) {
+  color: var(--russ-daughters-secondary);
+  animation: glitchy-2 3s infinite;
+}
+
+[menu] header h2:nth-child(3) {
+  color: var(--dark);
+  animation: glitchy-3 3s infinite;
+}
+
+[menu] input[type='radio'] {
+  
+}
+
+[menu] input[type='radio']:checked + label > div {
+  display: block;
+  position: relative;
+  z-index: 99;
+}
+
+[menu] > label > div {
   display: none;
+}
+
+@keyframes change-clip-path-size {
+  0%, 100% {
+    clip-path: circle(5%);
+  }
+  50% {
+    clip-path: circle(15%);
+  }
 }
 
 @keyframes triggerSequence {
@@ -485,4 +605,12 @@ main > section article p:last-of-type span:nth-child(2) {
     visibility: visible;
     max-height: unset;
   }
+}
+
+@keyframes glitchy-border {
+  0% {transform: translate(-2px, 2px)}
+  25% {transform: translate(-2px, -2px)}
+  50% {transform: translate(2px, 2px)}
+  75% {transform: translate(2px, -2px)}
+  100% {transform: translate(-2px, 2px)}
 }
