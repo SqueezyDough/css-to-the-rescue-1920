@@ -22,32 +22,39 @@
   src: url("../fonts/Inconsolata-Bold.ttf");
 }
 
-#dark:target {
-  background-color: red
+#body:target {
+ 
+    --russ-daughters: #5BD182;
+    --russ-daughters-secondary: #FF4141;
+
+    background-image: radial-gradient(
+    #008A05, #004703 120%
+  );
+
 }
 
-#light:target {
-  background-color: blue;
+#html:target {
+  --russ-daughters: #8ECFD5;
+  --russ-daughters-secondary: #D1A45B;
 }
 
-
+* {
+  box-sizing: border-box;
+}
 
 /* //////// */
   /* CONSOLE */
 /* //////// */
-
 body {
   margin: 0;
   padding: 3%;
-  height: 100vh;
   box-sizing: border-box;
-  /* overflow-y: hidden; */
+  overflow-x: hidden;
   background-image: radial-gradient(
     #161616, var(--dark) 120%
   );
   color: var(--russ-daughters);
   font-family: 'Inconsolata-regular', serif;
-  line-height: 1rem;
   text-shadow: 0 0 5px var(--russ-daughters);
   animation: blurScreen 30s infinite;
   animation-delay: 3s, 19s;
@@ -82,16 +89,194 @@ main {
   animation-delay: 20s;
 }
 
-[trigger="start"]:valid + [intro] {
-  display: block;
+/* //////// */
+  /* START */
+/* //////// */
+
+[trigger="start"] {
+  opacity: 0;
+  max-width: 0;
 }
 
-[intro] {
+[trigger="start"] + div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 2.5rem;
+}
+
+[trigger="start"] + div label {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+[trigger="start"] + div > label:nth-child(1) {
+  color: var(--russ-daughters);
+  animation: glitchy-1 3s infinite;
+}
+
+[trigger="start"] + div > label:nth-child(2) {
+  color: var(--russ-daughters-secondary);
+  animation: glitchy-2 3s infinite;
+}
+
+[trigger="start"] + div > label:nth-child(3) {
+  color: var(--light);
+  animation: glitchy-3 3s infinite;
+}
+
+[trigger="start"] + div span {
+  animation: blink 1s infinite;
+}
+
+/* hide start label */
+[trigger="start"]:valid + div {
   display: none;
 }
 
+/* show food-service */
+[trigger="start"]:valid ~ [theme] {
+  display: block;
+}
+
+a[theme] {
+  display: none;
+}
+
+#body:target [theme], #html:target [theme] {
+  display: none;
+}
+
+#body:target [food-service], #html:target [food-service] {
+  display: block;
+}
+
+[food-service] {
+  display: none;
+}
+
+[theme] {
+  display: block;
+  padding: 3%;
+  font-size: 8rem;
+  line-height: 8rem;
+  color: var(--russ-daughters);
+  border: 1px solid var(--russ-daughters-secondary);
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background .2s;
+}
+
+[theme]:hover {
+  background-color: var(--light);
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitchy-1 {
+  0%, 10%, 25%, 35%, 50%, 52%, 55%, 70%, 80%, 100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  7% {
+    transform: translate(-50%, -50%) skew(-0.5deg, -0.9deg);
+    opacity: 0.75;
+  }
+  30% {
+    transform: translate(-50%, -50%) skew(0.8deg, -0.1deg);
+    opacity: 0.75;
+  }
+  55% {
+    transform: translate(-50%, -50%) skew(-1deg, 0.2deg);
+    opacity: 0.75;
+  }
+  75% {
+    transform: translate(-50%, -50%) skew(0.4deg, 1deg);
+    opacity: 0.75;
+  }
+}
+
+@keyframes glitchy-1 {
+  0%, 10%, 25%, 35%, 50%, 52%, 55%, 70%, 80%, 100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  7% {
+    transform: translate(-50%, -50%) skew(-0.5deg, -0.9deg);
+    opacity: 0.75;
+  }
+  30% {
+    transform: translate(-50%, -50%) skew(0.8deg, -0.1deg);
+    opacity: 0.75;
+  }
+  55% {
+    transform: translate(-50%, -50%) skew(-1deg, 0.2deg);
+    opacity: 0.75;
+  }
+  75% {
+    transform: translate(-50%, -50%) skew(0.4deg, 1deg);
+    opacity: 0.75;
+  }
+}
+
+@keyframes glitchy-2 {
+  0%, 10%, 25%, 35%, 50%, 52%, 55%, 70%, 80%, 100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  7% {
+    transform: translate(-49%, -49%);
+    opacity: 0.75;
+  }
+  30% {
+    transform: translate(-49/5%, -48%);
+    opacity: 0.75;
+  }
+  55% {
+    transform: translate(-48%, -49%);
+    opacity: 0.75;
+  }
+  75% {
+    transform: translate(-49.5%, -49%);
+    opacity: 0.75;
+  }
+}
+
+@keyframes glitchy-3 {
+  0%, 10%, 25%, 35%, 50%, 52%, 55%, 70%, 80%, 100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  7% {
+    transform: translate(-51%, -51%);
+    opacity: 0.75;
+  }
+  30% {
+    transform: translate(-51%, -52%);
+    opacity: 0.75;
+  }
+  55% {
+    transform: translate(-51%, -50.5%);
+    opacity: 0.75;
+  }
+  75% {
+    transform: translate(-50.5%, -51%);
+    opacity: 0.75;
+  }
+}
+
 /* //////// */
-  /* INTRO */
+  /* food-service */
 /* //////// */
 main > section header {
   display: flex;
@@ -258,25 +443,26 @@ main > section article p:last-of-type span:nth-child(2) {
 /* //////// */
   /* MENU */
 /* //////// */
-main > div {
+[food-service] > div:first-of-type {
   display: flex;
   flex-wrap: wrap;
   visibility: hidden;
   max-height: 0;
+  overflow-y: hidden;
   animation: triggerSequence 1s forwards;
   animation-delay: 24s;
 }
 
-main > div section input[type='radio'] {
+[food-service] > div section input[type='radio'] {
   display: none;
 }
 
-main > div section input[type='radio']:checked + label {
+[food-service] > div section input[type='radio']:checked + label {
   background-color: var(--russ-daughters-secondary);
   color: var(--dark);
 }
 
-main > div section label {
+[food-service] > div section label {
   display: block;
   width: 10rem;
   height: 6rem;
@@ -286,7 +472,7 @@ main > div section label {
   cursor: pointer;
 }
 
-main > div > section > label > div {
+[food-service] > section > label > div {
   display: none;
 }
 
