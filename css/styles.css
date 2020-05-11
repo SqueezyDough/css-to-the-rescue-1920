@@ -140,8 +140,8 @@ body::after {
   display: block;
 }
 
-[trigger="start"]:valid ~h2:first-of-type {
-  display: none
+[trigger="start"]:valid ~ h2:first-of-type {
+  display: block;
 }
 
 @keyframes stripes-move {
@@ -151,6 +151,10 @@ body::after {
 }
 
 #body:target [theme], #html:target [theme] {
+  display: none;
+}
+
+#body:target h2:first-of-type, #html:target h2:first-of-type {
   display: none;
 }
 
