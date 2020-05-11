@@ -18,10 +18,10 @@ Dark-mode
 
 ## Stages
 The prototype contains several stages. I took a lot of time to create workarounds with HTML and CSS to trigger the next stage.
-- [X] Intro
+- [x] Start
 - [X] Theme select
+- [X] Intro
 - [X] Menu
-- [X] Dish select
 - [X] ERROR
 
 ## What I learned
