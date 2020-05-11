@@ -1,6 +1,8 @@
 # CSS to the Rescue @cmda-minor-web 19-20
 In this course I will create an interactive webpage using CSS and HTML only. I will build features that are usually done with javascript.
 
+I will have to pick a context and 2 restrictions as an extra challenge. I will have to think of a workaround which ultimately challenge me to be more creative!
+
 ## Learning goals:
 - You understand the broader scope of CSS: You can show that CSS can be used for more than just styling web pages.
 - You understand the progressive enhancement parts of CSS: You can show that you can use the cascade, inheritance and specificity in your project
