@@ -55,7 +55,7 @@ body {
   margin: 0;
   padding: 3%;
   min-height: 100vh;
-  box-sizing: border-box;
+  max-width: 100vw;
   overflow-x: hidden;
   background-image: radial-gradient(
     #161616, var(--dark) 120%
@@ -140,8 +140,14 @@ body::after {
   display: block;
 }
 
-a[theme] {
-  display: none;
+[trigger="start"]:valid ~h2:first-of-type {
+  display: none
+}
+
+@keyframes stripes-move {
+  100% {
+    background-position: 5em 0px;
+  }
 }
 
 #body:target [theme], #html:target [theme] {
@@ -152,11 +158,19 @@ a[theme] {
   display: block;
 }
 
+a[theme] {
+  display: none;
+}
+
+h2:first-of-type {
+  display: none
+}
+
 [theme] {
   display: block;
   padding: 3%;
-  font-size: 8rem;
-  line-height: 8rem;
+  font-size: 4rem;
+  line-height: 6rem;
   color: var(--russ-daughters);
   border: 1px solid var(--russ-daughters-secondary);
   text-decoration: none;
@@ -165,9 +179,21 @@ a[theme] {
   transition: background .2s;
 }
 
+/* snippet taken and adjusted from https://codemyui.com/buttons-trippy-background-animation-hover/ */
 [theme]:hover {
-  background-color: var(--light);
+  animation: blinds 0.75s linear forwards;
+  background: linear-gradient(0deg, var(--russ-daughters) 25%, transparent 25%) 0 0 / 0.5em 0.5em
+            , linear-gradient(0deg,var(--russ-daughters-secondary) 50%, transparent 50%) 0 0 / 1em 1em;
+  color: adjust-hue(var(--russ-daughters),180);
 }
+
+@keyframes blinds {
+  100% {
+    background-position: 0 0, 0 -3em;
+    background-size: 0 0, 1em 6em;
+  }
+}
+
 
 /* //////// */
   /* GLITCH KEYFRAMES */
