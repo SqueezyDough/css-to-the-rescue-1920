@@ -3,11 +3,15 @@ In this course I will create an interactive webpage using CSS and HTML only. I w
 
 I will have to pick a context and 2 restrictions as an extra challenge. I will have to think of a workaround which ultimately challenge me to be more creative!
 
+------
+
 ## Learning goals:
 - You understand the broader scope of CSS: You can show that CSS can be used for more than just styling web pages.
 - You understand the progressive enhancement parts of CSS: You can show that you can use the cascade, inheritance and specificity in your project
 - You understand the interactive parts of CSS: Is the UX fully enhanced within in given CSS scope?
 - You have been experimenting: Have the learning goals been stretched?
+
+------
 
 ## Contexts
 Dark-mode
@@ -15,6 +19,8 @@ Dark-mode
 ## Restrictions
 * Two-colors
 * Responsive without media queries
+
+------
 
 ## My concept
 My idea was to create a (glitchy) terminal with a bit of storytelling. The terminal isn't quite stable and this is part of the story. This terminal is in an infinite loop that always runs into the same error and let's you do the same things over and over again. 
@@ -26,6 +32,8 @@ The prototype contains several stages. I took a lot of time to create workaround
 
 #### Start
 A start screen where the user has to press a key to start the game. I've used a textbox with autofocus and required that is hidden from the user. When the user presses a key it is actually filled in to the textbox. I can trigger a next stage/sequence with `:valid` on the textbox.
+
+![00127be0ca155a62efa4e72e3db0b0e0](https://user-images.githubusercontent.com/33430653/81550455-8b46ee80-9380-11ea-8a4d-9bddb2441be9.png)
 
 ```
 /* show food-service */
@@ -44,6 +52,7 @@ Next the user will have to select a theme. The user can choose a dark-mode (defa
   display: block;
 }
 ```
+![db1eb4b9075529a65061635d552bb46c](https://user-images.githubusercontent.com/33430653/81550453-8a15c180-9380-11ea-90f8-09e6a9b9daf7.png)
 
 #### Intro
 Next an intro will play. No interaction from the user is required here. When the animationa are done, the menu pops up.
@@ -53,8 +62,15 @@ Next an intro will play. No interaction from the user is required here. When the
 #### Menu
 The user can select one of the four different menu's here. I've included some glitcht effects to illustrate this terminal is quite stable.
 
+![6713e13668bebc24e65c3d4eca178b23](https://user-images.githubusercontent.com/33430653/81550446-88e49480-9380-11ea-8d25-d5cd394e9add.png)
+
 #### ERROR
 The last stage happens when the user has selected a menu./ The menu fails to load and the terminal runs into a critical error. It manages to reboot its systems, but the user has to start all over again.
+
+
+![9f7ff4b10a2dd8609b4e703ca1b4763b](https://user-images.githubusercontent.com/33430653/81550445-884bfe00-9380-11ea-94b6-b7532ab0944b.png)
+
+The logo is a reference to Aperture Science from the Portal games. In this game you'll have to do all kinds of tests for a faulty AI.
 
 ------
 
@@ -81,6 +97,8 @@ The last stage happens when the user has selected a menu./ The menu fails to loa
  - More animation properties
  - Declaring multiple animations and delays in a statement
  - Clip-path
+ 
+ ------
  
  ## Sources
  - [MDN](https://developer.mozilla.org/nl/)
