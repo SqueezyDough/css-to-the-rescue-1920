@@ -19,6 +19,9 @@ Dark-mode
 ## Restrictions
 * Two-colors
 * Responsive without media queries
+ 
+## Extra challenge
+Create different triggers with CSS and HTML to trigger the next stage.
 
 ------
 
