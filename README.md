@@ -39,6 +39,8 @@ The prototype contains several stages. I took a lot of time to create workaround
  - Seperate a smooth animation into small steps. I've used this to create a type animation.
  - Implementing automatic dark-mode
  - Implementing manual dark-mode
+ - Better understanding of Flex.
+ - Using `flex-grow` to take all available space.
  - Better understanding of `::after` and `::before`
  - Custom HTML attributes with CSS
  - Target pseudoclass
