@@ -17,7 +17,7 @@ Dark-mode
 * Responsive without media queries
 
 ## Stages
-The prototype contains several stages. 
+The prototype contains several stages. I took a lot of time to create workarounds with HTML and CSS to trigger the next stage.
 - [X] Intro
 - [X] Theme select
 - [X] Menu
