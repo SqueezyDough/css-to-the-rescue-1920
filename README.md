@@ -21,9 +21,6 @@ My idea was to create a (glitchy) terminal with a bit of storytelling. The termi
 
 The concept is mostly on rails, meaning the effects mostly play automatically, but has some stages where it requires interaction from the user. I'm using different triggers to get to the next stage. 
 
-![bbb189f535ffbdf31d260b18858d923b](https://user-images.githubusercontent.com/33430653/81548755-12df2e00-937e-11ea-9667-be4b677cbfa2.png)
-
-
 ### Stages
 The prototype contains several stages. I took a lot of time to create workarounds with HTML and CSS to trigger the next stage.
 
@@ -51,11 +48,15 @@ Next the user will have to select a theme. The user can choose a dark-mode (defa
 #### Intro
 Next an intro will play. No interaction from the user is required here. When the animationa are done, the menu pops up.
 
+![bbb189f535ffbdf31d260b18858d923b](https://user-images.githubusercontent.com/33430653/81548755-12df2e00-937e-11ea-9667-be4b677cbfa2.png)
+
 #### Menu
 The user can select one of the four different menu's here. I've included some glitcht effects to illustrate this terminal is quite stable.
 
+#### ERROR
+The last stage happens when the user has selected a menu./ The menu fails to load and the terminal runs into a critical error. It manages to reboot its systems, but the user has to start all over again.
 
-- [X] ERROR
+------
 
 ## What I learned
 - Create triggers without JS with checkboxes and input validation
