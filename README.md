@@ -36,6 +36,7 @@ The prototype contains several stages. I took a lot of time to create workaround
   - transform-origin
  - ASCII art using the `pre` and `code` HTML tags
  - CSS variables
+ - Seperate a smooth animation into small steps. I've used this to create a type animation.
  - Implementing automatic dark-mode
  - Implementing manual dark-mode
  - Better understanding of `::after` and `::before`
