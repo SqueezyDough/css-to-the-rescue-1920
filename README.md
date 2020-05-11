@@ -26,7 +26,7 @@ The prototype contains several stages.
   - rotate3D
   - skew
   - transform-origin
- - ASCII art using the `pre` and `code HTML tags
+ - ASCII art using the `pre` and `code` HTML tags
  - CSS variables
  - Implementing automatic dark-mode
  - Implementing manual dark-mode
