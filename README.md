@@ -73,7 +73,9 @@ The last stage happens when the user has selected a menu./ The menu fails to loa
 The logo is a reference to Aperture Science from the Portal games. In this game you'll have to do all kinds of tests for a faulty AI.
 
 ### Dark mode
-I use dark mode as a default. All the images above are in dark-mode. I also made another theme option called Classic. This theme uses green en red as its colors.
+Dark mode is used when the user prefers dark mode in its system. All the images above are in dark-mode. I also made another theme option called Classic. This theme uses green en red as its colors.
+
+Both dark mode and classic mode can be selected manually.
 
 ![4f563e6034057f52cf56158a02a52fdd](https://user-images.githubusercontent.com/33430653/81551630-753a2d80-9382-11ea-81cd-1fa375dbdbef.png)
 
