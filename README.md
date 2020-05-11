@@ -52,5 +52,5 @@ The prototype contains several stages. I took a lot of time to create workaround
  - [MDN](https://developer.mozilla.org/nl/)
  - [CSS tricks](https://css-tricks.com/)
  - [Distortion effects](https://1stwebdesigner.com/trippy-css-distortion-effects/)
- - [Aperture science logo](https://combineoverwiki.net/wiki/Still_Alive)
+ - [Aperture science ASCII art](https://combineoverwiki.net/wiki/Still_Alive)
  - [Terminal styling](https://css-tricks.com/old-timey-terminal-styling/)
