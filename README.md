@@ -19,6 +19,7 @@ Dark-mode
 ## Restrictions
 * Two-colors
 * Responsive without media queries
+* Print style sheet
  
 ## Extra challenge
 Create different triggers with CSS and HTML to trigger the next stage.
@@ -87,6 +88,9 @@ The concept is responsive using relative values like percentages, vh/vw and I've
 
 ### Two colors
 I'm only using 2 colors at a time, for both dark and classic themes. Black is also used, but black is the abscence of color.
+
+### Print style sheet
+I've created a seperate print.css file that only shows the menu. All terminal stuff is hidden and the menu items are shown.
 
 ------
 
