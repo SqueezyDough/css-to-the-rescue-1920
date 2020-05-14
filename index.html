@@ -4,7 +4,8 @@
 	<meta charset="utf-8" />
 	<title>terminal</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" media="screen" href="css/styles.css">
+	<link rel="stylesheet" media="print" href="css/print.css">
 </head>
 
 <body id="body">
@@ -31,7 +32,7 @@
 <!-- INTRO -->
 <section food-service>
 	<article>
-		<span>$ service-test init --remote-delivery</span>
+		<span console-message>$ service-test init --remote-delivery</span>
 		<p>
 			<span>Hi, [visitor]</span>
 			<span>I am Caroline</span>
@@ -45,7 +46,7 @@
 			<small>version 9.6.1</small>
 		</header>
 
-		<p>
+		<p console-message>
 			<span>Booting menu...</span>
 		</p>
 	</article>
@@ -60,6 +61,55 @@
 					<h2>Noshes</h2>
 					<h2>Noshes</h2>
 				</header>
+
+				<div menu-items>
+					<article>
+						<h3>Russ &amp;  Daughters Knishes</h3>
+						<p>Potato, carmelized onion, mustard</p>
+						<div>8</div> <!-- price -->
+					</article>
+				
+					<article>
+						<h3>Hot Smoke/Cold Smoke</h3>
+						<p>Kippered baked Salmon &amp; Scottish smoked salmon spread, waffle-cut potato chips</p>
+						<div>13</div>
+					</article>
+				
+					<article>
+						<h3>Potato latkes</h3>
+						<p>Salmon roe and creme fraiche</p>
+						<div>13</div>
+					</article>
+				
+					<article>
+						<h3>Kasha Varnishkas</h3>
+						<p>buckwheat, caramelized onion, bowtie egg noodles</p>
+					</article>
+				
+					<article>
+						<h3>Chopped liver</h3>
+						<p>Matzo, pickled red onion</p>
+						<div>9</div>
+					</article>
+				
+					<article>
+						<h3>Super heebster</h3>
+						<p>whitefish &amp; baked salmon salad, wasabi-infused fish roe, horseradish dill cream cheese, bagel toast</p>
+						<div>10</div>
+					</article>
+				
+					<article>
+						<h3>Pastrami Russ</h3>
+						<p>pastrami-cured salmon, muenster cheese, sauerkraut, mustard, pickle, pretzel roll</p>
+						<div>12</div>
+					</article>
+				
+					<article>
+						<h3>sours</h3>
+						<p>pickled vegetables, pickles from the barrel</p>
+						<div>7</div>
+					</article>
+				</div>
 			</label>
 
 			<div error>				
@@ -113,14 +163,39 @@
 					<h2>Boards</h2>
 					<h2>Boards</h2>
 				</header>
+
+				<div menu-items>
+					<article>
+						<h3>the classic</h3>
+						<p>gaspe nova smoked salmon, cream cheese, bagel-bialy, tomato, onion, capers</p>
+						<div>16</div>
+					</article>
+				
+					<article>
+						<h3>mensch</h3>
+						<p>sturgeon, butter, bagel/bialy, tomato, onion, capers</p>
+						<div>22</div>
+					</article>
+				
+					<article>
+						<h3>shtetl</h3>
+						<p>smoked sable, goat cream cheese, bagel-bialy, tomato, onion, capers</p>
+						<div>18</div>
+					</article>
+				
+					<article>
+						<h3>yum kippered</h3>
+						<p>kippered (baked) salmon, cream cheese, bagel/bialy, tomato, onion, capers</p>
+						<div>16</div>
+					</article>
+				</div>
 			</label>
 
 			<div error>				
 				<p>
 					<span>Fetching menu items...</span>
 					<span>Fatal error [49QH789T]</span>
-					<span>Systems failing</span>
-									
+					<span>Systems failing</span>		
 				</p>
 
 				<p>
@@ -166,6 +241,31 @@
 					<h2>Platters</h2>
 					<h2>Platters</h2>
 				</header>
+
+				<div menu-items>					
+					<article>
+						<h3>smoked fish</h3>
+						<p><em>Serves 3 - 4 people</em> with cream cheese, onion, tomato, capers &amp; new potato salad and Russ &amp; daughters bread basket</p>
+					</article>
+
+					<article>
+						<h3>the hattie</h3>
+						<p>smoked whitefish, kippered (baked) salmon, gaspe nova smoked salmon, sable</p>
+						<div>80</div>
+					</article>
+
+					<article>
+						<h3>the ida</h3>
+						<p>scottish smoked salmon, gaspe nova smoked salmon, pastrami-cured salmon, gravlox</p>
+						<div>70</div>
+					</article>
+
+					<article>
+						<h3>the anne</h3>
+						<p>western nova smoked salmon, private stock sturgeon, sable, smoked brook trout, wild alaskan salmon roe</p>
+						<div>90</div>
+					</article>
+				</div>
 			</label>
 
 			<div error>				
@@ -219,14 +319,58 @@
 					<h2>Eggs</h2>
 					<h2>Eggs</h2>
 				</header>
+				
+				<div menu-items>					
+					<article>
+						<h3>Lox, eggs &amp; onions</h3>
+						<p>with toasted shissel rye</p>
+						<div>15</div>
+					</article>
+				
+					<article>
+						<h3>sturgeon, eggs &amp; onion</h3>
+						<p>with toasted pumpernickel</p>
+						<div>19</div>
+					</article>
+				
+					<article>
+						<h3>bella's matzo brei</h3>
+						<p>matzo, egg, applesauce, sour cream</p>
+						<div>12</div>
+					</article>
+				
+					<article>
+						<h3>lower sunny side</h3>
+						<p>sunny side up eggs, gaspe nova smoked salmon, potato latkes</p>
+						<div>16</div>
+					</article>
+				
+					<article>
+						<h3>eggs benny</h3>
+						<p>poached eggs, scottish smoked salmon, sautéed spinach, hollandaise, challah</p>
+						<div>18</div>
+					</article>
+				
+					<article>
+						<h3>farm egg omelette</h3>
+						<p>gaspe nova smoked salmon, cream cheese</p>
+						<div>15</div>
+					</article>
+				
+					<article>
+						<h3>soft scrambled eggs &amp; caviar</h3>
+						<p>custard-like egg, caviar with challah</p>
+						<div>180</div>
+					</article>
+				
+				</div>
 			</label>
 
 			<div error>				
 				<p>
 					<span>Fetching menu items...</span>
 					<span>Fatal error [49QH789T]</span>
-					<span>Systems failing</span>
-									
+					<span>Systems failing</span>									
 				</p>
 
 				<p>

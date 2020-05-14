@@ -530,6 +530,10 @@ h2:first-of-type {
   flex-grow: 2;
 }
 
+[menu-items] {
+  display: none;
+}
+
 [menu] > label {
   display: block;
   position: relative;

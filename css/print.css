@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "Inconsolata-regular";
+    src: url("../fonts/Inconsolata-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    font-family: "Inconsolata-regular", sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+input, [theme], [error], [console-message] {
+    display: none;
+}
+
+main > div, main > h2 {
+    display: none;
+}
+
+[menu] h2:not(:first-of-type) {
+    display: none;
+}
+
+[food-service] > article, [menu-items] {
+    padding: 1rem;
+    border: 1px solid #000;
+}
+
+[menu-items] article {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid grey;
+}
+
+[menu-items] article div:last-child::before {
+    content: '€';
+}
+
+[menu-items] article div:last-child::after {
+    content: ',-';
+}
