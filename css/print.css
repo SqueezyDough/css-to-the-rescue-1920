@@ -20,6 +20,11 @@ main > div, main > h2 {
     display: none;
 }
 
+[menu] {
+    page-break-after: always;
+    break-after: always;
+}
+
 [menu] h2:not(:first-of-type) {
     display: none;
 }
